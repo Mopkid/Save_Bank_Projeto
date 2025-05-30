@@ -1,0 +1,29 @@
+#include <stdio.h> 
+
+int main() {
+    float saldo = 1000.00; 
+    float valorSaque;      
+
+    printf("Bem-vindo(a) ao sistema de saque!\n");
+    printf("Seu saldo atual e de R$ %.2f\n", saldo); // Exibe o saldo atual do usuário
+
+    printf("Digite o valor que deseja sacar: R$ ");
+    scanf("%f", &valorSaque); // Lê o valor que o usuário digitou e armazena em valorSaque
+
+    // Validação do saque:
+    if (valorSaque <= 0) { // Verifica se o valor do saque é menor ou igual a zero
+        printf("Valor de saque invalido. Por favor, digite um valor positivo.\n");
+    } else if (valorSaque > saldo) { // Verifica se o valor do saque é maior que o saldo disponível
+        printf("Saldo insuficiente! Voce nao possui R$ %.2f disponivel para saque.\n", valorSaque);
+        printf("Seu saldo atual e de R$ %.2f\n", saldo);
+    } else { // Se o valor for válido e houver saldo suficiente
+        saldo = saldo - valorSaque; // Realiza o saque, subtraindo o valor do saldo
+        printf("Saque de R$ %.2f realizado com sucesso!\n", valorSaque);
+        printf("Seu novo saldo e de R$ %.2f\n", saldo); // Exibe o novo saldo
+    }
+
+    printf("\nObrigado(a) por usar nosso sistema!\n");
+
+    return 0; // Indica que o programa terminou com sucesso
+}           
+//Ass: Jullie Kessy Pereira de Carvalho
