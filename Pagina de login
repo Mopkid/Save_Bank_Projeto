@@ -3,35 +3,47 @@
 #include <time.h>
 #include <string.h>
 
+void visualizarSaldo(float saldo);
+
 int main() {
-    int numero_cartao, cartao_digitado, operacoes;
+    int numero_cartao, cartao_digitado;
     char senha[20], senha_digitada[20];
-    float saldo = 0, saque, deposito;
+    float saldo = 0;
+    int opcao;
 
-    // Gerador de numero de cartao
+    // Gerador de numero de cartão
     srand(time(NULL));
-    numero_cartao = 100000 + rand() % 900000; // Gera numero de 6 digitos
+    numero_cartao = 100000 + rand() % 900000; // Gera número de 6 dígitos
 
-    printf("Bem-vindo ao sistema de criacao de conta!\n");
-    printf("Seu numero de cartao e: %d\n", numero_cartao);
+    printf("Bem-vindo ao sistema de criação de conta!\n");
+    printf("Seu número de cartão é: %d\n", numero_cartao);
 
-    // Criacao de senha para o cartao
-    printf("Crie uma senha para o seu cartao: ");
-    scanf("%19s", senha);  // Limitador pra algum mauluco n�o botar uma senha de 500 digitos
+    // Criação de senha para o cartão
+    printf("Crie uma senha para o seu cartão: ");
+    scanf("%19s", senha);  // Limitador pra algum mauluco não botar uma senha de 500 digitos
 
     printf("\nConta criada com sucesso!\n\n");
 
     // Sistema de login
     printf("=== Login ===\n");
-    printf("Digite o numero do cartao: ");
+    printf("Digite o número do cartão: ");
     scanf("%d", &cartao_digitado);
 
     printf("Digite a senha: ");
     scanf("%19s", senha_digitada);
 
-    // Verificacao
+    // Verificação
     if (cartao_digitado == numero_cartao && strcmp(senha, senha_digitada) == 0) {
         printf("Login bem-sucedido! Bem-vindo!\n");
+        
+        printf("\n==MENU==\n");
+        printf("O que deseja fazer?\n");
+        printf("1 - Consultar saldo.\n");
+        scanf("%d", &opcao);
+        visualizarSaldo(saldo);
+        
     } else {
-        printf("Numero do cartao ou senha incorretos.\n");
-    }
+        printf("Número do cartão ou senha incorretos.\n");
+    }
+}
+//Feito po Italo Aandrade De Sousa
