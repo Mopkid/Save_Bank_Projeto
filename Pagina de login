@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+
+int main() {
+    int numero_cartao, cartao_digitado, operacoes;
+    char senha[20], senha_digitada[20];
+    float saldo = 0, saque, deposito;
+
+    // Gerador de numero de cartao
+    srand(time(NULL));
+    numero_cartao = 100000 + rand() % 900000; // Gera numero de 6 digitos
+
+    printf("Bem-vindo ao sistema de criacao de conta!\n");
+    printf("Seu numero de cartao e: %d\n", numero_cartao);
+
+    // Criacao de senha para o cartao
+    printf("Crie uma senha para o seu cartao: ");
+    scanf("%19s", senha);  // Limitador pra algum mauluco n�o botar uma senha de 500 digitos
+
+    printf("\nConta criada com sucesso!\n\n");
+
+    // Sistema de login
+    printf("=== Login ===\n");
+    printf("Digite o numero do cartao: ");
+    scanf("%d", &cartao_digitado);
+
+    printf("Digite a senha: ");
+    scanf("%19s", senha_digitada);
+
+    // Verificacao
+    if (cartao_digitado == numero_cartao && strcmp(senha, senha_digitada) == 0) {
+        printf("Login bem-sucedido! Bem-vindo!\n");
+    } else {
+        printf("Numero do cartao ou senha incorretos.\n");
+    }
