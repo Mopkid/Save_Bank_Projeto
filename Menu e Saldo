@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+void visualizarSaldo(float saldo) {
+//mostra o menu principal junto do saldo
+    printf("Usuário: Pedro Kalil Pereira Sousa da Costa\n");
+    printf("Seu saldo atual é: R$ %.2f\n", saldo);
+//mostra as opções de alteração do saldo
+    printf("\nDeseja realizar um depósito? Aperte 1.\n");
+    printf("Deseja realizar um saque? Aperte 2.\n");
+}
+//Feito po Guilherme Kalil
