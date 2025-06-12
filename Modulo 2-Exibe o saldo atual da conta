@@ -12,4 +12,5 @@ void visualizarSaldo(float saldo) {  // funcao para exibir o saldo
     } else {
         printf("Seu saldo esta baixo(voce esta liso). Economize mais antes de gastar!.\n");
     }
+    }
 //Feito por Guilherme Kalil
