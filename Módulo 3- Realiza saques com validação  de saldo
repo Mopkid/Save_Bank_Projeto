@@ -5,14 +5,14 @@ extern void registrarOperacao(const char *tipo, float valor);
 void realizarSaque(float *saldo) {
     float valorSaque;
     printf("Digite o valor que deseja sacar: R$ ");
-    scanf("%f", &valorSaque);
+    scanf("%f", &valorSaque);// Lê o valor que o usuário digitou e armazena em valorSaque
 
-    if (valorSaque <= 0) {
+    if (valorSaque <= 0) { // Verifica se o valor do saque é menor ou igual a zero
         printf("Valor de saque invalido.\n");
-    } else if (valorSaque > *saldo) {
+    } else if (valorSaque > *saldo) { // Verifica se o valor do saque é maior que o saldo disponível
         printf("Saldo insuficiente! Voce nao possui R$ %.2f.\n", valorSaque);
     } else {
-        *saldo -= valorSaque;
+        *saldo -= valorSaque; // Realiza o saque, subtraindo o valor do saldo
         registrarOperacao("Saque", valorSaque);
         printf("Saque de R$ %.2f realizado com sucesso!\n", valorSaque);
     }
