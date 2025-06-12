@@ -1,49 +1,77 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <string.h>
+#include <time.h>
 
+// Declarações das funções dos outros arquivos
 void visualizarSaldo(float saldo);
+void realizarDeposito(float *saldo);
+void realizarSaque(float *saldo);
+void registrarOperacao(const char *tipo, float valor);
+void exibirTotalOperacoes();
 
+// Variáveis globais
 int main() {
     int numero_cartao, cartao_digitado;
     char senha[20], senha_digitada[20];
-    float saldo = 0;
+    float saldo = 1000.0; // Saldo inicial para testes
     int opcao;
 
-    // Gerador de numero de cartão
+    // Gerador de número de cartão
     srand(time(NULL));
-    numero_cartao = 100000 + rand() % 900000; // Gera número de 6 dígitos
+    numero_cartao = 100000 + rand() % 900000;
+// criaçao de conta
+    printf("Bem-vindo ao sistema de criacao de conta!\n");
+    printf("Seu numero de cartao e: %d\n", numero_cartao);
+    printf("Crie uma senha para o seu cartao: ");
+    scanf("%19s", senha);
 
-    printf("Bem-vindo ao sistema de criação de conta!\n");
-    printf("Seu número de cartão é: %d\n", numero_cartao);
+    printf("\nConta criada com sucesso!\n");
 
-    // Criação de senha para o cartão
-    printf("Crie uma senha para o seu cartão: ");
-    scanf("%19s", senha);  // Limitador pra algum mauluco não botar uma senha de 500 digitos
-
-    printf("\nConta criada com sucesso!\n\n");
-
-    // Sistema de login
-    printf("=== Login ===\n");
-    printf("Digite o número do cartão: ");
+    // verificação de Login
+    printf("\n=== Login ===\n");
+    printf("Digite o número do cartao: ");
     scanf("%d", &cartao_digitado);
-
     printf("Digite a senha: ");
     scanf("%19s", senha_digitada);
 
-    // Verificação
     if (cartao_digitado == numero_cartao && strcmp(senha, senha_digitada) == 0) {
-        printf("Login bem-sucedido! Bem-vindo!\n");
-        
-        printf("\n==MENU==\n");
-        printf("O que deseja fazer?\n");
-        printf("1 - Consultar saldo.\n");
-        scanf("%d", &opcao);
-        visualizarSaldo(saldo);
-        
+        printf("Login bem-sucedido!\n");
+
+        do {
+            printf("\n== MENU ==\n");
+            printf("1 - Consultar saldo\n");
+            printf("2 - Realizar deposito\n");
+            printf("3 - Realizar saque\n");
+            printf("0 - Sair\n");
+            printf("Escolha uma opcao: ");
+            scanf("%d", &opcao);
+//encaminha o usuario para as estaçoes de deposito/saque assim como disponibiliza a visualização do saldo e encerramento d sistemaa
+            switch (opcao) {
+                case 1:
+                    visualizarSaldo(saldo);
+                    break;
+                case 2:
+                    realizarDeposito(&saldo);
+                    break;
+                case 3:
+                    realizarSaque(&saldo);
+                    break;
+                case 0:
+                    printf("Saindo...\n");
+                    break;
+                default:
+                    printf("Opção invalida.\n");
+            }
+//encerra o codigo quando o usario escolhe a opcao de sair
+        } while (opcao != 0);
+
+        exibirTotalOperacoes();
+//encerra o codigo em caso de senha ou numero de cartao incorretos
     } else {
-        printf("Número do cartão ou senha incorretos.\n");
-    }
+        printf("Numero do cartao ou senha incorretos.\n");
+    }
+
+    return 0;
 }
-//Feito po Italo Aandrade De Sousa
+// Feito por Italo Andrade De Sousa
