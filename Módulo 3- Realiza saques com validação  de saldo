@@ -8,9 +8,9 @@ void realizarSaque(float *saldo) {
     scanf("%f", &valorSaque);
 
     if (valorSaque <= 0) {
-        printf("Valor de saque inválido.\n");
+        printf("Valor de saque invalido.\n");
     } else if (valorSaque > *saldo) {
-        printf("Saldo insuficiente! Você não possui R$ %.2f.\n", valorSaque);
+        printf("Saldo insuficiente! Voce nao possui R$ %.2f.\n", valorSaque);
     } else {
         *saldo -= valorSaque;
         registrarOperacao("Saque", valorSaque);
