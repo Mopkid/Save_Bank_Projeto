@@ -1,11 +1,15 @@
 #include <stdio.h>
 
-void visualizarSaldo(float saldo) {
-//mostra o menu principal junto do saldo
-    printf("Usuário: Pedro Kalil Pereira Sousa da Costa\n");
-    printf("Seu saldo atual é: R$ %.2f\n", saldo);
-//mostra as opções de alteração do saldo
-    printf("\nDeseja realizar um depósito? Aperte 1.\n");
-    printf("Deseja realizar um saque? Aperte 2.\n");
-}
-//Feito po Guilherme Kalil
+void visualizarSaldo(float saldo) {  // funcao para exibir o saldo
+    printf("Usuario: Pedro Kalil Pereira Sousa da Costa\n");
+    printf("Seu saldo atual e: R$ %.2f\n", saldo); // Mostra o saldo atual do usuario
+    
+    // Estrutura de decisao para informar o usuario sobre seu saldo
+    if (saldo >= 100) {
+        printf("Voce tem saldo suficiente para realizar uma compra de alto valor.\n");
+    } else if (saldo >= 50) {
+        printf("Voce pode realizar compras de medio valor.\n");
+    } else {
+        printf("Seu saldo esta baixo(voce esta liso). Economize mais antes de gastar!.\n");
+    }
+//Feito por Guilherme Kalil
