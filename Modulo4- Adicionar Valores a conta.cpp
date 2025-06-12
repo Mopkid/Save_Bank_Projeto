@@ -10,6 +10,7 @@ void realizarDeposito(float *saldo) {
         *saldo += deposito;
         registrarOperacao("Deposito", deposito);
         printf("Deposito de R$ %.2f realizado com sucesso\n", deposito);
+        printf("Saldo atual: %.2f\n", *saldo);
     } else {
         printf("O valor a ser depositado deve ser positivo!\n");
     }
