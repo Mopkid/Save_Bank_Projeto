@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <string.h>
+
 #define MAX_OPERACOES 100
 
 typedef struct {
@@ -8,26 +11,17 @@ typedef struct {
 Operacao historico[MAX_OPERACOES];
 int totalOperacoes = 0;
 
-// Função para registrar uma operação no histórico
 void registrarOperacao(const char *tipo, float valor) {
     if (totalOperacoes < MAX_OPERACOES) {
         strcpy(historico[totalOperacoes].tipo, tipo);
         historico[totalOperacoes].valor = valor;
         totalOperacoes++;
-    } else {
-        printf("O histórico de operações está cheio!\n");
     }
 }
 
-// Função para exibir todas as operações realizadas
-void exibirHistorico() {
-    printf("\n=== Histórico de Operações ===\n");
-    if (totalOperacoes == 0) {
-        printf("Nenhuma operação realizada até o momento.\n");
-    } else {
-        for (int i = 0; i < totalOperacoes; i++) {
-            printf("%d - %s: R$ %.2f\n", i + 1, historico[i].tipo, historico[i].valor);
-        }
-    }
-    printf("==============================\n\n");
+void exibirTotalOperacoes() {
+    printf("\n=== Resumo Final ===\n");
+    printf("Total de operações realizadas: %d\n", totalOperacoes);
+    printf("====================\n");
 }
+//feita por pedro yan
